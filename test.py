@@ -1,5 +1,3 @@
-import qrcode
-img = qrcode.make('https://latifyilmaz.com')
-img.save("qrcode.png");
+a = ""
 
-print(img)
+print("https://" in a or "http://" in a)

@@ -37,6 +37,64 @@ html,body{
     background: transparent;
 }
 
+/*#region Tabs*/
+.tabs{
+    margin: 0 auto;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 50px;
+    width: 60%;
+    overflow: hidden;
+    display: flex;
+}
+
+.tabs .tab label{
+    position: absolute;
+    right: 40px;
+    top: 20px;
+    margin-top:5px;
+    color: black;
+    background-color: transparent;
+    background: transparent;
+    z-index: 10;
+    font-size: 10px;
+    cursor: pointer;
+}
+
+.tab{
+    position: relative;
+    transition: 300ms all;
+    width:100px;
+    cursor: pointer;
+    border: none;
+    text-align: center;
+    border-bottom:5px solid var(--yellow);
+}
+
+.tab span{
+    margin-bottom: 15px;
+    color: black;
+    text-align: center;
+    transition: 150ms all;
+}
+
+
+.tab-disabled{
+    border-bottom:3px solid #c8a121;
+}
+
+
+.tab:hover{
+    border-bottom: 5.2px solid #aa8406;
+}
+
+.tab:hover span{
+    font-size: 25px;
+}
+
+/*#endregion*/
+
+
 
 
 /*#region Footer*/

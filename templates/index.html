@@ -3,13 +3,35 @@
 
 {% block content %}
     <div class="main">
-        <form method="GET">
-            <input name="data" id="search" type="text" placeholder="Enter URL or some Text" value="{{ data }}" required>
-            <button id="submit" type="submit"><span class="material-icons">qr_code_scanner</span></button>
-        </form>
+        <div class="tabs">
+            <a href="{{ url_for("home", tab="text") }}" id="text" class="tab no-theme {% if tab != "text" %}tab-disabled{% endif %}"><span class="material-icons">article</span><label for="text">Text</label></a>
+            <a href="{{ url_for("home", tab="link") }}" id="link" class="tab no-theme {% if tab != "link" %}tab-disabled{% endif %}"><span class="material-icons">link</span><label for="url">Link</label></a>
+            <a href="{{ url_for("home", tab="sms") }}" id="sms" class="tab no-theme {% if tab != "sms" %}tab-disabled{% endif %}"><span class="material-icons">sms</span><label for="SMS">SMS</label></a>
+        </div>
+
+        {% if tab == "text" %}
+            <form method="POST">
+                <input name="data" id="search" type="text" placeholder="Enter Text..." value="{{ data }}" required>
+                <button id="submit" type="submit"><span class="material-icons">qr_code_scanner</span></button>
+            </form>
+        {% elif tab == "link" %}
+            <form method="POST">
+                <input name="data" id="search" type="text" placeholder="Enter URL..." value="{{ data }}" required>
+                <button id="submit" type="submit"><span class="material-icons">qr_code_scanner</span></button>
+            </form>
+        {% elif tab == "sms" %}
+            <form method="POST">
+                <input name="to" id="search" type="number" placeholder="To Who..." value="{{ to }}" required>
+                <input name="content" id="search" type="text" placeholder="Enter Text..." value="{{ content }}" required>
+                <button id="submit" type="submit"><span class="material-icons">qr_code_scanner</span></button>
+            </form>
+        {% endif %}
+        
+
+
+
 
         <div class="results">
-
             {% if qr %}
                 <div class="result">
                     <img src="{{ qr }}">
