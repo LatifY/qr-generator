@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block title %}QR Generator - Generate{% endblock %}
+
+{% block content %}
+    <div class="main">
+        <form method="GET">
+            <input name="data" id="search" type="text" placeholder="Enter URL or some Text" value="{{ data }}" required>
+            <button id="submit" type="submit"><span class="material-icons">qr_code_scanner</span></button>
+        </form>
+
+        <div class="results">
+
+            {% if qr %}
+                <div class="result">
+                    <img src="{{ qr }}">
+
+                    <a class="download" type="submit" href="{{ qr }}" download="qrcode"><button>Download</button></a>
+                </div>
+            {% endif %}
+        </div>
+    </div>
+
+{% endblock %}
+
+
+
+
